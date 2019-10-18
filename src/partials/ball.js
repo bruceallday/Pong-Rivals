@@ -1,5 +1,6 @@
 import { SVG_NS } from '../settings'
-import Paddle from './Paddle';
+import Game from'./Game'
+
 
 export default class Ball{
     constructor(boardWidth, boardHeight, r, color, speed){
@@ -9,7 +10,9 @@ export default class Ball{
         this.direction = 1;
         this.speed = speed
         this.color = color;
+        this.restarting = false;
         this.reset();
+        
     }
 
     wallCollision(){
@@ -50,6 +53,7 @@ export default class Ball{
     }
 
     reset(){
+        this.restarting = true;
         this.x = this.boardWidth / 2;
         this.y = this.boardHeight / 2;
         this.vy = 0;

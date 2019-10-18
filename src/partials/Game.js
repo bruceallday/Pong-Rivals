@@ -35,6 +35,7 @@ export default class Game {
       KEYS.k,
       KEYS.m);
 
+
     //Creating the ball
     this.ball = new Ball(this.width, this.height, 5, 'white', 1);
 
@@ -44,11 +45,6 @@ export default class Game {
 
     //Boolean that starts the game loop;
     this.gameOn = false;
-
-    //Boolean to determine the danger ball
-    this.dangerBall = false;
-
-    this.ballSchedular();
 
     document.addEventListener('keydown', event =>{
       switch(event.key){
@@ -61,42 +57,26 @@ export default class Game {
           break;
 
         case KEYS.r:
-          console.log("clicked");
           this.ball = new Ball(this.width, this.height, 5, 'red', 1.3);
           break;
 
         case KEYS.w:
           this.ball = new Ball(this.width, this.height, 5, 'white', 1);
           break
-
-          
       }
     })
   }
-
-  
-
-  // ballSchedular(){
-  //   const num = Math.floor(Math.random() * 4);
-  //   if (num === 3){
-  //     this.dangerBall = true;
-  //   }
-  //   console.log(this.dangerBall);
-  //   if(this.dangerBall){
-  //     this.ball = new Ball(this.width, this.height, 5, 'red', 1.3);
-  //     this.dangerBall = false;
-  //   }else{
-  //     this.ball = new Ball(this.width, this.height, 5, 'white', 1);
-  //   }
-  // }
 
   ballSchedular() {
     const num = Math.floor(Math.random() * 4);
     if (num === 3){
       this.ball = new Ball(this.width, this.height, 5, 'red', 1.3);
+    }else if(num === 0){
+      this.ball = new Ball(this.width, this.height, 5, 'cyan', 1.2);
     }else{
       this.ball = new Ball(this.width, this.height, 5, 'white', 1);
     }
+    console.log(num);
   }
 
   render() {
@@ -116,6 +96,11 @@ export default class Game {
       this.gameMessage.innerText = "Player 1 Wins!";
       this.restartMessage.innerText = "Restart (space)";
       return;
+    }
+
+    if(this.ball.restarting){
+      this.ballSchedular();
+      this.ball.restarting = false;
     }
 
 
