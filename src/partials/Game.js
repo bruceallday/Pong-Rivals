@@ -57,11 +57,11 @@ export default class Game {
           break;
 
         case KEYS.r:
-          this.ball = new Ball(this.width, this.height, 5, 'red', 1.3);
+          this.ball = new Ball(this.width, this.height, 5, 'red', 1.3, "danger");
           break;
 
         case KEYS.w:
-          this.ball = new Ball(this.width, this.height, 5, 'white', 1);
+          this.ball = new Ball(this.width, this.height, 5, 'white', 1, "regular");
           break
       }
     })
@@ -70,11 +70,11 @@ export default class Game {
   ballSchedular() {
     const num = Math.floor(Math.random() * 4);
     if (num === 3){
-      this.ball = new Ball(this.width, this.height, 5, 'red', 1.3);
+      this.ball = new Ball(this.width, this.height, 5, 'red', 1.3, 'danger');
     }else if(num === 0){
-      this.ball = new Ball(this.width, this.height, 5, 'cyan', 1.2);
+      this.ball = new Ball(this.width, this.height, 5, 'cyan', 1.2, 'life');
     }else{
-      this.ball = new Ball(this.width, this.height, 5, 'white', 1);
+      this.ball = new Ball(this.width, this.height, 5, 'white', 1, 'regular');
     }
     console.log(num);
   }

@@ -3,16 +3,17 @@ import Game from'./Game'
 
 
 export default class Ball{
-    constructor(boardWidth, boardHeight, r, color, speed){
+    constructor(boardWidth, boardHeight, r, color, speed, type){
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.r = r;
         this.direction = 1;
         this.speed = speed
         this.color = color;
+        this.type = type;
         this.restarting = false;
+
         this.reset();
-        
     }
 
     wallCollision(){
@@ -64,9 +65,17 @@ export default class Ball{
         this.vx = this.direction * (6- Math.abs(this.vy));
     }
 
-    goal(player){
-        player.lives --;
-        this.reset();
+    goal(player, type){
+        if(type === "regular"){
+            player.lives--;
+            this.reset();
+
+        }else if(type === "danger"){
+            this.reset();
+
+        }else if (type === "life"){
+            this.reset();
+        }
     }
 
     render(svg, paddle, paddle2){
@@ -86,14 +95,36 @@ export default class Ball{
         const rightGoal = this.x + this.r >= this.boardWidth;
         const leftGoal = this.x - this.r <= 0;
 
-        if(rightGoal){
-            this.goal(paddle);
+        // REGULAR BALL BEHAVIOUR ON GOAL
+        if(rightGoal && this.type === "regular"){
+            this.goal(paddle, "regular");
             this.direction = 1;
         }
-        else if(leftGoal){
-            this.goal(paddle2);
+        else if(leftGoal && this.type === "regular"){
+            this.goal(paddle2, "regular");
             this.direction = -1;
         }
+
+        //DANGER BALL BEHAVIOUR 
+        else if(rightGoal && this.type === "danger"){
+            this.goal(paddle, "danger")
+            this.direction = 1;
+
+        }else if(leftGoal && this.type === "danger"){
+            this.goal(paddle2, "danger")
+            this.direction = -1;
+        }
+
+        //LIFE BALL BEHAVIOUR
+        else if (rightGoal && this.type === "life"){
+            this.goal(paddle, "life")
+            this.direction = 1;
+
+        }else if (leftGoal && this.type === "life"){
+            this.goal(paddle2, "life")
+            this.direction = -1;
+        }
+        
     }
 
     mover() {
