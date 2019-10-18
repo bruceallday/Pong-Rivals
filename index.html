@@ -7,7 +7,9 @@
 	<body>
 		<div class="game-wrapper">
 			<h1>Pong</h1>
-			<h1 style="color: red;" >Rivals!</h1>
+			<div id="miamiLogo">
+				<img src="/src/styles/miamilogo.png" alt="">
+			</div>
 			<div id="game"></div>
 			<!-- Rough-out your SVG mark-up here to start... -->
 
@@ -40,7 +42,9 @@
 			<h1 id="gameMessage">Press space to begin.</h1>
 			<h1 id="restartMessage"></h1>
 		</div>
-		
+		<audio id="music">
+			<source src="src/styles/retro.wav">
+		</audio>
 		<script type="text/javascript" src="./src/index.js"></script>
 	</body>
 </html>

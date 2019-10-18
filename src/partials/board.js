@@ -16,8 +16,8 @@ export default class Board {
         rect.setAttributeNS(null, "y", 0);
         rect.setAttributeNS(null, 'width', this.width);
         rect.setAttributeNS(null, 'height', this.height);
-        rect.setAttributeNS(null, "stroke", "black");
-        rect.setAttributeNS(null, "fill", "#353535");
+        rect.setAttributeNS(null, "stroke", "#ff1493");
+        rect.setAttributeNS(null, "fill", "#2A1140");
         rect.setAttributeNS(null, "stroke-width", "7");
 
         // Appending our svg with the rect we just created.

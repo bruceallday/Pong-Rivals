@@ -29,6 +29,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+  background-image: url('https://thumbs.gfycat.com/ElaborateZealousIlladopsis-size_restricted.gif');
+  background-size: 100%;
+  background-repeat: no-repeat;
 	line-height: 1;
 }
 ol, ul {
@@ -45,6 +48,11 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+#miamiLogo{
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -82,7 +90,11 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem; 
+  font-size: 3rem;
+  margin-top: 50px;
   text-align: center;
+}
+
+img{
+  background-size: 100%;
 }

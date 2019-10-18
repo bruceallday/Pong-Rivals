@@ -13,6 +13,8 @@ export default class Game {
     this.gameElement = document.getElementById(this.element);
     this.gameMessage = gameMessage;
     this.restartMessage = restartMessage;
+    this.audio = document.getElementById("music");
+    this.audio.play();
     
     // creating and instance of the board
     this.board = new Board(this.width, this.height);
@@ -34,7 +36,6 @@ export default class Game {
       this.startingPosition,
       KEYS.k,
       KEYS.m);
-
 
     //Creating the ball
     this.ball = new Ball(this.width, this.height, 5, 'white', 1);
@@ -65,6 +66,7 @@ export default class Game {
           break
       }
     })
+
   }
 
   ballSchedular() {
@@ -76,10 +78,10 @@ export default class Game {
     }else{
       this.ball = new Ball(this.width, this.height, 5, 'white', 1, 'regular');
     }
-    console.log(num);
   }
 
   render() {
+
     if (!this.gameOn){
       this.paddle.speed = 0;
       this.paddle2.speed = 0;
@@ -102,7 +104,6 @@ export default class Game {
       this.ballSchedular();
       this.ball.restarting = false;
     }
-
 
     //Creating the initial svg tag
     let svg = document.createElementNS(SVG_NS, "svg");

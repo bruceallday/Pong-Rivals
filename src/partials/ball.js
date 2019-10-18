@@ -1,6 +1,4 @@
 import { SVG_NS } from '../settings'
-import Game from'./Game'
-
 
 export default class Ball{
     constructor(boardWidth, boardHeight, r, color, speed, type){
@@ -74,6 +72,7 @@ export default class Ball{
             this.reset();
 
         }else if (type === "life"){
+            player.lives ++;
             this.reset();
         }
     }
@@ -83,19 +82,12 @@ export default class Ball{
         this.mover();
         this.wallCollision();
         this.paddleCollision(paddle, paddle2);
-
-        let circle = document.createElementNS(SVG_NS, "circle");
-        circle.setAttributeNS(null, "cx", this.x)
-        circle.setAttributeNS(null, "cy", this.y)
-        circle.setAttributeNS(null, "r", this.r);
-        circle.setAttributeNS(null, "stroke", "black");
-        circle.setAttributeNS(null, "fill", `${this.color}`);
-        svg.appendChild(circle);
+        this.drawBall(svg);
 
         const rightGoal = this.x + this.r >= this.boardWidth;
         const leftGoal = this.x - this.r <= 0;
 
-        // REGULAR BALL BEHAVIOUR ON GOAL
+        // REGULAR BALL BEHAVIOUR
         if(rightGoal && this.type === "regular"){
             this.goal(paddle, "regular");
             this.direction = 1;
@@ -117,14 +109,24 @@ export default class Ball{
 
         //LIFE BALL BEHAVIOUR
         else if (rightGoal && this.type === "life"){
-            this.goal(paddle, "life")
+            this.goal(paddle2, "life")
             this.direction = 1;
 
         }else if (leftGoal && this.type === "life"){
-            this.goal(paddle2, "life")
+            this.goal(paddle, "life")
             this.direction = -1;
         }
         
+    }
+
+    drawBall(svg) {
+        let circle = document.createElementNS(SVG_NS, "circle");
+        circle.setAttributeNS(null, "cx", this.x);
+        circle.setAttributeNS(null, "cy", this.y);
+        circle.setAttributeNS(null, "r", this.r);
+        circle.setAttributeNS(null, "stroke", "black");
+        circle.setAttributeNS(null, "fill", `${this.color}`);
+        svg.appendChild(circle);
     }
 
     mover() {
