@@ -9,8 +9,6 @@ export default class Paddle{
         this.y = y;
         this.speed = 10;
         this.lives = 3;
-
-        this.gameOn = false;
         
         document.addEventListener("keydown", event => {
             console.log(event);

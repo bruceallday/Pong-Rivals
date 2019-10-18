@@ -38,14 +38,17 @@ export default class Game {
     //Creating the ball
     this.ball = new Ball(this.width, this.height, 5, 'white', 1);
 
-    // this.dangerBall = new Ball(this.width, this.height, 5, 'red');
-
     //Creating the score labels
     this.score1 = new Score(this.width / 2 -50, 30, 30);
     this.score2 = new Score(this.width / 2 +50, 30, 30);
 
     //Boolean that starts the game loop;
     this.gameOn = false;
+
+    //Boolean to determine the danger ball
+    this.dangerBall = false;
+
+    this.ballSchedular();
 
     document.addEventListener('keydown', event =>{
       switch(event.key){
@@ -65,20 +68,35 @@ export default class Game {
         case KEYS.w:
           this.ball = new Ball(this.width, this.height, 5, 'white', 1);
           break
+
           
-
-        // case KEYS.r:
-        //   this.gameMessage.innerText = "";
-        //   this.restartMessage.innerText = "";
-        //   this.ball.reset();
-
-        // case KEYS.spaceBar && !this.gameOn:
-        //   this.restartMessage.innerText = "";
-        //   this.ball.reset();
-        //   this.gameOn = true;
-        //   break;
       }
     })
+  }
+
+  
+
+  // ballSchedular(){
+  //   const num = Math.floor(Math.random() * 4);
+  //   if (num === 3){
+  //     this.dangerBall = true;
+  //   }
+  //   console.log(this.dangerBall);
+  //   if(this.dangerBall){
+  //     this.ball = new Ball(this.width, this.height, 5, 'red', 1.3);
+  //     this.dangerBall = false;
+  //   }else{
+  //     this.ball = new Ball(this.width, this.height, 5, 'white', 1);
+  //   }
+  // }
+
+  ballSchedular() {
+    const num = Math.floor(Math.random() * 4);
+    if (num === 3){
+      this.ball = new Ball(this.width, this.height, 5, 'red', 1.3);
+    }else{
+      this.ball = new Ball(this.width, this.height, 5, 'white', 1);
+    }
   }
 
   render() {
@@ -99,6 +117,7 @@ export default class Game {
       this.restartMessage.innerText = "Restart (space)";
       return;
     }
+
 
     //Creating the initial svg tag
     let svg = document.createElementNS(SVG_NS, "svg");
