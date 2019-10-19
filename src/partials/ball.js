@@ -6,10 +6,13 @@ export default class Ball{
         this.boardHeight = boardHeight;
         this.r = r;
         this.direction = 1;
+        this.currentDirection = 0;
         this.speed = speed
         this.color = color;
         this.type = type;
         this.restarting = false;
+
+        this.giveDamage =false;
         this.reset();
     }
 
@@ -20,10 +23,11 @@ export default class Ball{
         const hitBottom = this.y + this.r >= this.boardHeight;
 
         if(hitRight || hitLeft){
-            this.vx = -this.vx;
+            this.vx = -this.vx;  
         }else if (hitTop || hitBottom){
             this.vy = -this.vy;
         }
+
     }
 
     paddleCollision(paddle, paddle2){
@@ -35,8 +39,15 @@ export default class Ball{
                 && (this.x + this.r <= rightX)
                 && (this.y >= topY && this.y <= bottomY)
             ){
+                if(this.type === 'danger'){
+                    this.giveDamage = true;
+            }
+                this.currentDirection = -1;
                 this.vx = -this.vx;
             }
+
+            
+
         }else{
             let paddle2 = paddle.coordinates(paddle.x, paddle.y, paddle.width, paddle.height)
             let [leftX, rightX, topY, bottomY] = paddle2;
@@ -45,8 +56,14 @@ export default class Ball{
                 && (this.x - this.r >= leftX)
                 &&(this.y >= topY && this.y <= bottomY)
             ){
+                if(this.type === 'danger'){
+                    this.giveDamage = true;
+            }
+                this.currentDirection = 1;
                 this.vx = -this.vx;
             }
+
+
         }
     }
 

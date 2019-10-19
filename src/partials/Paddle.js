@@ -8,7 +8,7 @@ export default class Paddle{
         this.x = x;
         this.y = y;
         this.speed = 10;
-        this.lives = 0;
+        this.lives = 10;
         this.color = color;
         this.movingUp = false;
         this.movingDown = false;
@@ -26,7 +26,6 @@ export default class Paddle{
         // });
 
         document.addEventListener("keydown", event => {
-            console.log(event);
             switch (event.key) {
                 case up:
                     this.movingUp = true;
@@ -36,8 +35,8 @@ export default class Paddle{
                     break;
             }
         });
+        
         document.addEventListener("keyup", event => {
-            console.log(event);
             switch (event.key) {
                 case up:
                     this.movingUp = false;
@@ -59,6 +58,7 @@ export default class Paddle{
         if(this.movingDown){
             this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
         }
+        
     }
 
     drawPaddle(svg) {
@@ -72,7 +72,6 @@ export default class Paddle{
         paddleRect.setAttributeNS(null, "stroke-width", "2");
         svg.appendChild(paddleRect);
     }
-
 
     // moveUp(){
     //     this.y = Math.max(0, this.y - this.speed);

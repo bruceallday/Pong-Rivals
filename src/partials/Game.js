@@ -79,7 +79,6 @@ export default class Game {
   }
 
   render() {
-
     if (!this.gameOn){
       this.paddle.speed = 0;
       this.paddle2.speed = 0;
@@ -106,6 +105,15 @@ export default class Game {
       this.ballSchedular();
       this.ball.restarting = false;
     }
+
+    if(this.ball.giveDamage && this.ball.currentDirection === -1){
+      this.paddle.lives -= 1;
+      this.ball.giveDamage = false;
+    }else if(this.ball.giveDamage && this.ball.currentDirection === 1){
+      this.paddle2.lives -= 1;
+      this.ball.giveDamage = false;
+    }
+
 
     //Creating the initial svg tag
     let svg = document.createElementNS(SVG_NS, "svg");
