@@ -13,8 +13,6 @@ export default class Game {
     this.gameElement = document.getElementById(this.element);
     this.gameMessage = gameMessage;
     this.restartMessage = restartMessage;
-    this.audio = document.getElementById("music");
-    this.audio.play();
     
     // creating and instance of the board
     this.board = new Board(this.width, this.height);
@@ -29,13 +27,13 @@ export default class Game {
     this.paddle = new Paddle(
       this.height, this.paddleWidth, this.paddleHeight, this.boardGap, this.startingPosition,
       KEYS.a,
-      KEYS.z);
+      KEYS.z, "#ff1493");
 
     this.paddle2 = new Paddle(
       this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth,
       this.startingPosition,
       KEYS.k,
-      KEYS.m);
+      KEYS.m, "#1ff4ef");
 
     //Creating the ball
     this.ball = new Ball(this.width, this.height, 5, 'white', 1);

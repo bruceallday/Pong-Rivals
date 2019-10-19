@@ -10,7 +10,6 @@ export default class Ball{
         this.color = color;
         this.type = type;
         this.restarting = false;
-
         this.reset();
     }
 

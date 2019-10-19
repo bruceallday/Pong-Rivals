@@ -3,6 +3,9 @@ import Game from './partials/Game';
 
 const gameMessage = document.getElementById("gameMessage");
 const restartMessage = document.getElementById("restartMessage");
+const audio = document.getElementById("music");
+
+audio.play();
 
 // create a game instance
 const game = new Game('game', 512, 256, gameMessage, restartMessage);

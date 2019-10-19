@@ -19,6 +19,7 @@ export default class Board {
         rect.setAttributeNS(null, "stroke", "#ff1493");
         rect.setAttributeNS(null, "fill", "#2A1140");
         rect.setAttributeNS(null, "stroke-width", "7");
+        rect.setAttributeNS(null, "opacity", 0.5);
 
         // Appending our svg with the rect we just created.
         svg.appendChild(rect);
@@ -44,7 +45,7 @@ export default class Board {
         lineWhite.setAttributeNS(null, "y1", 5);
         lineWhite.setAttributeNS(null, "x2", 256);
         lineWhite.setAttributeNS(null, "y2", 256);
-        lineWhite.setAttributeNS(null, "stroke", "white");
+        lineWhite.setAttributeNS(null, "stroke", "#ff1493");
         lineWhite.setAttributeNS(null, "stroke-width", 7);
         lineWhite.setAttributeNS(null, "stroke-dasharray", 6);
 
@@ -72,7 +73,7 @@ export default class Board {
         lineWhite2.setAttributeNS(null, "y1", 10);
         lineWhite2.setAttributeNS(null, "x2", 265);
         lineWhite2.setAttributeNS(null, "y2", 265);
-        lineWhite2.setAttributeNS(null, "stroke", "white");
+        lineWhite2.setAttributeNS(null, "stroke", "#1ff4ef");
         lineWhite2.setAttributeNS(null, "stroke-width", 7);
         lineWhite2.setAttributeNS(null, "stroke-dasharray", 6);
 
