@@ -34,6 +34,19 @@ body {
   background-repeat: no-repeat;
 	line-height: 1;
 }
+
+header{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+}
+
+.titleHeading{
+  color: #ff1493;
+  text-shadow: 2px 2px #1ff4ef;
+  margin-top:200px;
+}
+
 ol, ul {
 	list-style: none;
 }

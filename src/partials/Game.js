@@ -87,13 +87,17 @@ export default class Game {
     } 
 
     if(this.paddle.lives < 0){
+      this.gameMessage.style.color = "#ff1493";
       this.gameMessage.innerText = "Player 2 Wins!";
+      this.restartMessage.style.color = "white";
       this.restartMessage.innerText = "Restart (space)";
       return;
     }
 
     if(this.paddle2.lives < 0){
+      this.gameMessage.style.color = "#1ff4ef";
       this.gameMessage.innerText = "Player 1 Wins!";
+      this.restartMessage.style.color = "white";
       this.restartMessage.innerText = "Restart (space)";
       return;
     }
