@@ -28,10 +28,10 @@ export default class Board {
         let line = document.createElementNS(SVG_NS, 'line');
 
         //Creating elements for our new line
-        line.setAttributeNS(null, "x1", 256);
+        line.setAttributeNS(null, "x1", 250);
         line.setAttributeNS(null, "y1", 0);
-        line.setAttributeNS(null, "x2", 256);
-        line.setAttributeNS(null, "y2", 256);
+        line.setAttributeNS(null, "x2", 250);
+        line.setAttributeNS(null, "y2", 250);
         line.setAttributeNS(null, "stroke", "black");
         line.setAttributeNS(null, "stroke-width", 7);
         line.setAttributeNS(null, "stroke-dasharray", 6);
@@ -41,10 +41,10 @@ export default class Board {
 
         //Creating elements for our new line
         let lineWhite = document.createElementNS(SVG_NS, 'line');
-        lineWhite.setAttributeNS(null, "x1", 256);
+        lineWhite.setAttributeNS(null, "x1", 250);
         lineWhite.setAttributeNS(null, "y1", 5);
-        lineWhite.setAttributeNS(null, "x2", 256);
-        lineWhite.setAttributeNS(null, "y2", 256);
+        lineWhite.setAttributeNS(null, "x2", 250);
+        lineWhite.setAttributeNS(null, "y2", 250);
         lineWhite.setAttributeNS(null, "stroke", "#ff1493");
         lineWhite.setAttributeNS(null, "stroke-width", 7);
         lineWhite.setAttributeNS(null, "stroke-dasharray", 6);
@@ -56,10 +56,10 @@ export default class Board {
         let line2 = document.createElementNS(SVG_NS, 'line');
 
         //Creating elements for our new line
-        line2.setAttributeNS(null, "x1", 265);
+        line2.setAttributeNS(null, "x1", 260);
         line2.setAttributeNS(null, "y1", 5);
-        line2.setAttributeNS(null, "x2", 265);
-        line2.setAttributeNS(null, "y2", 265);
+        line2.setAttributeNS(null, "x2", 260);
+        line2.setAttributeNS(null, "y2", 260);
         line2.setAttributeNS(null, "stroke", "black");
         line2.setAttributeNS(null, "stroke-width", 7);
         line2.setAttributeNS(null, "stroke-dasharray", 6);
@@ -69,10 +69,10 @@ export default class Board {
 
         //Creating elements for our new line
         let lineWhite2 = document.createElementNS(SVG_NS, 'line');
-        lineWhite2.setAttributeNS(null, "x1", 265);
+        lineWhite2.setAttributeNS(null, "x1", 260);
         lineWhite2.setAttributeNS(null, "y1", 10);
-        lineWhite2.setAttributeNS(null, "x2", 265);
-        lineWhite2.setAttributeNS(null, "y2", 265);
+        lineWhite2.setAttributeNS(null, "x2", 260);
+        lineWhite2.setAttributeNS(null, "y2", 260);
         lineWhite2.setAttributeNS(null, "stroke", "#1ff4ef");
         lineWhite2.setAttributeNS(null, "stroke-width", 7);
         lineWhite2.setAttributeNS(null, "stroke-dasharray", 6);

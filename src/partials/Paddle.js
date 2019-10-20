@@ -8,7 +8,7 @@ export default class Paddle{
         this.x = x;
         this.y = y;
         this.speed = 10;
-        this.lives = 7;
+        this.lives = 0;
         this.color = color;
         this.movingUp = false;
         this.movingDown = false;

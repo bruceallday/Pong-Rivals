@@ -45,7 +45,6 @@ header{
 .titleHeading{
   color: #1ff4ef;
   text-shadow: 2px 2px #ff1493;
-  /* margin-top:200px; */
 }
 
 ol, ul {
@@ -67,6 +66,15 @@ table {
 #miamiLogo{
   display: flex;
   justify-content: center;
+}
+
+.gameMessage{
+  color: #1ff4ef;
+  text-shadow: 2px 2px #ff1493;
+}
+.restartMessage{
+  color: #1ff4ef;
+  text-shadow: 2px 2px #ff1493;
 }
 
 /**

@@ -66,6 +66,8 @@ export default class Game {
 
       if(!this.gameOn && event.key === KEYS.spaceBar){
         this.gameMessage.innerText = "PAUSED";
+      }else if(this.gameOn && event.key === KEYS.spaceBar){
+        this.gameMessage.innerText = "...";
       }
     })
 
@@ -101,8 +103,9 @@ export default class Game {
     if(this.paddle.lives < 0){
       this.gameOver = true;
       this.gameMessage.style.color = "#ff1493";
+      this.gameMessage.style.textShadow = "2px 2px #1ff4ef";
       this.gameMessage.innerText = "Player 2 Wins!";
-      this.restartMessage.style.color = "white";
+      this.restartMessage.style.color = "#1ff4ef";
       this.restartMessage.innerText = "Restart (space)";
       return;
     }
@@ -110,9 +113,11 @@ export default class Game {
     if(this.paddle2.lives < 0){
       this.gameOver = true;
       this.gameMessage.style.color = "#1ff4ef";
+      this.gameMessage.style.textShadow = "2px 2px #ff1493"
       this.gameMessage.innerText = "Player 1 Wins!";
-      this.restartMessage.style.color = "white";
+      this.restartMessage.style.color = "#ff1493";
       this.restartMessage.innerText = "Restart (space)";
+      this.restartMessage.style.textShadow = "2px 2px #1ff4ef"
       return;
     }
 
