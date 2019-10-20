@@ -23,9 +23,12 @@ export default class Ball{
         const hitBottom = this.y + this.r >= this.boardHeight;
 
         if(hitRight || hitLeft){
-            this.vx = -this.vx;  
+            this.vx = -this.vx;
+            this.speed += 0.1; 
+
         }else if (hitTop || hitBottom){
             this.vy = -this.vy;
+            this.speed += 0.1;
         }
 
     }

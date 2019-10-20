@@ -29,9 +29,10 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-  background-image: url('https://thumbs.gfycat.com/ElaborateZealousIlladopsis-size_restricted.gif');
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background-image: url('/src/styles/miami-skyline.gif');
+  background-repeat: repeat;
+  background-size: 105%;
+  background-position-x: -40px;
 	line-height: 1;
 }
 
@@ -42,9 +43,9 @@ header{
 }
 
 .titleHeading{
-  color: #ff1493;
-  text-shadow: 2px 2px #1ff4ef;
-  margin-top:200px;
+  color: #1ff4ef;
+  text-shadow: 2px 2px #ff1493;
+  /* margin-top:200px; */
 }
 
 ol, ul {
@@ -103,7 +104,7 @@ body {
 
 h1 {
   font-size: 3rem;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   text-align: center;
 }
 

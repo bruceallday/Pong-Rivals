@@ -57,22 +57,14 @@ export default class Game {
           this.paddle2.speed = 10;
           this.paddle.speed = 10;
           break;
-
-        case KEYS.r:
-          this.ball = new Ball(this.width, this.height, 5, 'red', 1.3, "danger");
-          break;
-
-        case KEYS.w:
-          this.ball = new Ball(this.width, this.height, 5, 'white', 1, "regular");
-          break
       }
 
-      if(this.gameOver){
+      if(this.gameOver && event.key === KEYS.spaceBar){
         this.gameOver = false;
         this.restartGame();
       }
 
-      if(!this.gameOn){
+      if(!this.gameOn && event.key === KEYS.spaceBar){
         this.gameMessage.innerText = "PAUSED";
       }
     })
