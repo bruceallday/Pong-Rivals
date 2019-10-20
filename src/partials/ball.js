@@ -46,8 +46,6 @@ export default class Ball{
                 this.vx = -this.vx;
             }
 
-            
-
         }else{
             let paddle2 = paddle.coordinates(paddle.x, paddle.y, paddle.width, paddle.height)
             let [leftX, rightX, topY, bottomY] = paddle2;
@@ -62,7 +60,6 @@ export default class Ball{
                 this.currentDirection = 1;
                 this.vx = -this.vx;
             }
-
 
         }
     }

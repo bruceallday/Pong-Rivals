@@ -13,6 +13,12 @@ export default class Game {
     this.gameElement = document.getElementById(this.element);
     this.gameMessage = gameMessage;
     this.restartMessage = restartMessage;
+    this.audio = document.getElementById("music");
+
+    this.audio.play(); 
+
+     //Boolean that starts the game loop;
+    this.gameOn = false;
     
     // creating and instance of the board
     this.board = new Board(this.width, this.height);
@@ -42,9 +48,6 @@ export default class Game {
     this.score1 = new Score(this.width / 2 -50, 30, 30);
     this.score2 = new Score(this.width / 2 +50, 30, 30);
 
-    //Boolean that starts the game loop;
-    this.gameOn = false;
-
     document.addEventListener('keydown', event =>{
       switch(event.key){
         case KEYS.spaceBar:
@@ -63,8 +66,26 @@ export default class Game {
           this.ball = new Ball(this.width, this.height, 5, 'white', 1, "regular");
           break
       }
+
+      if(this.gameOver){
+        this.gameOver = false;
+        this.restartGame();
+      }
+
+      if(!this.gameOn){
+        this.gameMessage.innerText = "PAUSED";
+      }
     })
 
+  }
+
+  restartGame(){
+    this.gameOver = false;
+    this.gameOn = true;
+    this.ball.reset();
+    this.gameMessage.innerText = "";
+    this.paddle2.lives = 7;
+    this.paddle.lives = 7;
   }
 
   ballSchedular() {
@@ -86,6 +107,7 @@ export default class Game {
     } 
 
     if(this.paddle.lives < 0){
+      this.gameOver = true;
       this.gameMessage.style.color = "#ff1493";
       this.gameMessage.innerText = "Player 2 Wins!";
       this.restartMessage.style.color = "white";
@@ -94,6 +116,7 @@ export default class Game {
     }
 
     if(this.paddle2.lives < 0){
+      this.gameOver = true;
       this.gameMessage.style.color = "#1ff4ef";
       this.gameMessage.innerText = "Player 1 Wins!";
       this.restartMessage.style.color = "white";
@@ -113,7 +136,6 @@ export default class Game {
       this.paddle2.lives -= 1;
       this.ball.giveDamage = false;
     }
-
 
     //Creating the initial svg tag
     let svg = document.createElementNS(SVG_NS, "svg");

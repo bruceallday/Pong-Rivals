@@ -8,7 +8,7 @@ export default class Paddle{
         this.x = x;
         this.y = y;
         this.speed = 10;
-        this.lives = 10;
+        this.lives = 0;
         this.color = color;
         this.movingUp = false;
         this.movingDown = false;
@@ -35,7 +35,7 @@ export default class Paddle{
                     break;
             }
         });
-        
+
         document.addEventListener("keyup", event => {
             switch (event.key) {
                 case up:
