@@ -105,7 +105,6 @@ export default class Ball{
         const rightGoal = this.x + this.r >= this.boardWidth;
         const leftGoal = this.x - this.r <= 0;
 
-        // REGULAR BALL BEHAVIOUR
         if(rightGoal && this.type === "regular"){
             this.goal(paddle, "regular");
             this.direction = 1;
@@ -115,7 +114,6 @@ export default class Ball{
             this.direction = -1;
         }
 
-        //DANGER BALL BEHAVIOUR 
         else if(rightGoal && this.type === "danger"){
             this.goal(paddle, "danger")
             this.direction = 1;
@@ -125,7 +123,6 @@ export default class Ball{
             this.direction = -1;
         }
 
-        //LIFE BALL BEHAVIOUR
         else if (rightGoal && this.type === "life"){
             this.goal(paddle2, "life")
             this.direction = 1;

@@ -16,18 +16,6 @@ export default class Paddle{
         this.attacking = false;
         this.attackDistance = 20;
         
-        // document.addEventListener("keydown", event => {
-        //     console.log(event);
-        //     switch (event.key) {
-        //         case up:
-        //             this.moveUp();
-        //             break;
-        //         case down:
-        //             this.moveDown();
-        //             break;
-        //     }
-        // });
-
         document.addEventListener("keydown", event => {
             switch (event.key) {
                 case up:
@@ -37,7 +25,6 @@ export default class Paddle{
                     this.movingDown = true;
                     break;
                 case attack:
-                    console.log(attack);
                     this.attacking = true;
             }
         });
@@ -53,13 +40,11 @@ export default class Paddle{
                 case attack:
                     //add attck
                     console.log(attack);
-                    console.log(this.x);
             }
         });
     }
 
     render(svg){
-        // Creating a paddle element;
         this.drawPaddle(svg);
 
         //Unfinished attack.
@@ -88,14 +73,6 @@ export default class Paddle{
         paddleRect.setAttributeNS(null, "stroke-width", "2");
         svg.appendChild(paddleRect);
     }
-
-    // moveUp(){
-    //     this.y = Math.max(0, this.y - this.speed);
-    // }
-
-    // moveDown(){
-    //     this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
-    // }
 
     coordinates(x, y, width, height){
         let leftX = x;

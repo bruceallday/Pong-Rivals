@@ -16,22 +16,15 @@ export default class Game {
     this.audio = document.getElementById("music");
     this.form = form;
     this.startOfGame = true;
-
     this.audio.play(); 
-
-     //Boolean that starts the game loop;
     this.gameOn = false;
-    
-    // creating and instance of the board
     this.board = new Board(this.width, this.height);
 
-    //Creating the paddle values
     this.paddleWidth = 8;
     this.paddleHeight = 56;
     this.boardGap = 10;
     this.startingPosition = this.height / 2 - this.paddleHeight / 2;
 
-    //Creating a new paddle
     this.paddle = new Paddle(
       this.height, this.paddleWidth, this.paddleHeight, this.boardGap, this.startingPosition,
       KEYS.a, KEYS.z, "#ff1493",
@@ -44,10 +37,8 @@ export default class Game {
       KEYS.k, KEYS.m, "#1ff4ef",
       KEYS.n);
 
-    //Creating the ball
     this.ball = new Ball(this.width, this.height, 5, 'white', 1);
 
-    //Creating the score labels
     this.score1 = new Score(this.width / 2 -50, 30, 30);
     this.score2 = new Score(this.width / 2 +50, 30, 30);
 
@@ -65,10 +56,7 @@ export default class Game {
       if(this.startOfGame && event.key === KEYS.spaceBar){
         this.playerOneData = document.getElementById("playerOneInput").value
         this.playerTwoData = document.getElementById("playerTwoInput").value
-        console.log(this.playerOneData)
-        console.log(this.playerTwoData)
         this.startOfGame = false;
-
       }
 
       if(this.gameOver && event.key === KEYS.spaceBar){
@@ -151,31 +139,23 @@ export default class Game {
       this.ball.giveDamage = false;
     }
 
-    //Creating the initial svg tag
     let svg = document.createElementNS(SVG_NS, "svg");
 
-    //This method will stop the board flying off the screen 
     this.gameElement.innerHTML = "";
 
-    //Creating new attributes inside our SVG
     svg.setAttributeNS(null, 'width', this.width);
     svg.setAttributeNS(null, 'height', this.height);
     svg.setAttributeNS(null, 'viewBox', `0 0 ${this.width} ${this.height}`);
 
-    //Appending the SVG we created to the game element 
     this.gameElement.appendChild(svg);
 
-    //Rendering the board to the screen we imported and created.
     this.board.render(svg);
 
-    //Rendering the paddle
     this.paddle.render(svg);
     this.paddle2.render(svg);
 
-    //Renderin the ball
     this.ball.render(svg, this.paddle, this.paddle2);
 
-    //rendering score
     this.score1.render(svg, this.paddle2.lives);
     this.score2.render(svg, this.paddle.lives);
 
