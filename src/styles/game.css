@@ -119,7 +119,7 @@ h1 {
 }
 
 img{
-  background-size: 100%;
+  background-size: 250%;
 }
 
 input{
@@ -136,6 +136,7 @@ input{
   font-size: 1em;
   color: #e183e5;
   margin: 10px;
+  border: none;
 
 }
 
@@ -147,6 +148,7 @@ input{
   font-size: 1em;
   color: #1ff4ef;
   margin: 10px;
+  border: none;
 }
 
 .playerOneName{
@@ -163,7 +165,7 @@ input{
 
 form{
   text-align: center;
-  margin-top: 100px;
+  margin-top: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

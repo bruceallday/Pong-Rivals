@@ -8,7 +8,7 @@ export default class Paddle{
         this.x = x;
         this.y = y;
         this.speed = 10;
-        this.lives = 0;
+        this.lives = 7;
         this.color = color;
         this.movingUp = false;
         this.movingDown = false;
@@ -37,10 +37,8 @@ export default class Paddle{
                     this.movingDown = true;
                     break;
                 case attack:
-                    //add attack
                     console.log(attack);
                     this.attacking = true;
-                    
             }
         });
 
@@ -64,10 +62,12 @@ export default class Paddle{
         // Creating a paddle element;
         this.drawPaddle(svg);
 
-        if (this.attacking && this.x === 494){
-            this.x -= 10;
-           console.log(this.x);
-        }
+        //Unfinished attack.
+
+        // if (this.attacking && this.x === 494){
+        //     this.x -= 10;
+        //    console.log(this.x);
+        // }
 
         if(this.movingUp){
             this.y = Math.max(0, this.y - this.speed);
@@ -105,7 +105,4 @@ export default class Paddle{
         return[leftX, rightX, topY, bottomY]
     }
 
-    attack(){
-
-    }
 }   

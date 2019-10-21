@@ -51,12 +51,6 @@ export default class Game {
     this.score1 = new Score(this.width / 2 -50, 30, 30);
     this.score2 = new Score(this.width / 2 +50, 30, 30);
 
-
-    // document.addEventListener("submit", event =>{
-    //   event.preventDefault();
-    //   this.formData = this.form;
-    // })
-
     document.addEventListener('keydown', event =>{
       switch(event.key){
         case KEYS.spaceBar:
@@ -87,8 +81,6 @@ export default class Game {
       }else if(this.gameOn && event.key === KEYS.spaceBar){
         this.gameMessage.innerText = "...";
       }
-
-
     })
   }
 
@@ -123,7 +115,6 @@ export default class Game {
       this.paddle2.speed = 0;
       return;
     }
-
 
     if(this.paddle.lives < 0){
       this.gameOver = true;
