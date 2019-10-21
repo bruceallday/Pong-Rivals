@@ -71,6 +71,8 @@ table {
 .gameMessage{
   color: #1ff4ef;
   text-shadow: 2px 2px #ff1493;
+  margin: 20px;
+  font-size: 4em;
 }
 .restartMessage{
   color: #1ff4ef;
@@ -119,3 +121,55 @@ h1 {
 img{
   background-size: 100%;
 }
+
+input{
+  opacity: 0.9;
+  text-decoration: none;
+  
+}
+
+.playerOneInput{
+  width: 200px;
+  height: 25px;
+  background-color: #1ff4ef;
+  font-family: 'Silkscreen Web';
+  font-size: 1em;
+  color: #e183e5;
+  margin: 10px;
+
+}
+
+.playerTwoInput{
+  width: 200px;
+  height: 25px;
+  background-color: #ff1493;
+  font-family: 'Silkscreen Web';
+  font-size: 1em;
+  color: #1ff4ef;
+  margin: 10px;
+}
+
+.playerOneName{
+  font-size: 2.5em;
+  color: #1ff4ef;
+  margin: 10px;
+}
+
+.playerTwoName{
+  font-size: 2.5em;
+  color: #ff1493;
+  margin: 10px;
+}
+
+form{
+  text-align: center;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+section{
+  align-self: center;
+}
+

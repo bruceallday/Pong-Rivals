@@ -77,6 +77,8 @@ export default class Ball{
             this.vy = Math.floor(Math.random() * 10 - 5);
         }
         this.vx = this.direction * (6- Math.abs(this.vy));
+        this.vx *= Math.round(Math.random())* 2-1;
+        
     }
 
     goal(player, type){

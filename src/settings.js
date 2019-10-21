@@ -6,6 +6,7 @@ export const KEYS = {
     k: 'k',
     m: 'm',
     r: 'r',
-    w: 'w',
+    n: 'n',
+    x: 'x',
     spaceBar:' '
 }

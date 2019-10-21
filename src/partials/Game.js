@@ -6,7 +6,7 @@ import Score from './score';
 
 
 export default class Game {
-  constructor(element, width, height, gameMessage, restartMessage){
+  constructor(element, width, height, gameMessage, restartMessage, form){
     this.element = element;
     this.width = width;
     this.height = height;
@@ -14,6 +14,8 @@ export default class Game {
     this.gameMessage = gameMessage;
     this.restartMessage = restartMessage;
     this.audio = document.getElementById("music");
+    this.form = form;
+    this.startOfGame = true;
 
     this.audio.play(); 
 
@@ -32,14 +34,15 @@ export default class Game {
     //Creating a new paddle
     this.paddle = new Paddle(
       this.height, this.paddleWidth, this.paddleHeight, this.boardGap, this.startingPosition,
-      KEYS.a,
-      KEYS.z, "#ff1493");
+      KEYS.a, KEYS.z, "#ff1493",
+      KEYS.x
+      );
 
     this.paddle2 = new Paddle(
       this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth,
       this.startingPosition,
-      KEYS.k,
-      KEYS.m, "#1ff4ef");
+      KEYS.k, KEYS.m, "#1ff4ef",
+      KEYS.n);
 
     //Creating the ball
     this.ball = new Ball(this.width, this.height, 5, 'white', 1);
@@ -47,6 +50,12 @@ export default class Game {
     //Creating the score labels
     this.score1 = new Score(this.width / 2 -50, 30, 30);
     this.score2 = new Score(this.width / 2 +50, 30, 30);
+
+
+    // document.addEventListener("submit", event =>{
+    //   event.preventDefault();
+    //   this.formData = this.form;
+    // })
 
     document.addEventListener('keydown', event =>{
       switch(event.key){
@@ -59,6 +68,15 @@ export default class Game {
           break;
       }
 
+      if(this.startOfGame && event.key === KEYS.spaceBar){
+        this.playerOneData = document.getElementById("playerOneInput").value
+        this.playerTwoData = document.getElementById("playerTwoInput").value
+        console.log(this.playerOneData)
+        console.log(this.playerTwoData)
+        this.startOfGame = false;
+
+      }
+
       if(this.gameOver && event.key === KEYS.spaceBar){
         this.gameOver = false;
         this.restartGame();
@@ -69,8 +87,9 @@ export default class Game {
       }else if(this.gameOn && event.key === KEYS.spaceBar){
         this.gameMessage.innerText = "...";
       }
-    })
 
+
+    })
   }
 
   restartGame(){
@@ -94,19 +113,26 @@ export default class Game {
   }
 
   render() {
+
+    if(this.gameOn){
+      this.form.style.display = "none";
+    }
+
     if (!this.gameOn){
       this.paddle.speed = 0;
       this.paddle2.speed = 0;
       return;
-    } 
+    }
+
 
     if(this.paddle.lives < 0){
       this.gameOver = true;
       this.gameMessage.style.color = "#ff1493";
       this.gameMessage.style.textShadow = "2px 2px #1ff4ef";
-      this.gameMessage.innerText = "Player 2 Wins!";
+      this.gameMessage.innerText = `${this.playerTwoData} wins!`;
       this.restartMessage.style.color = "#1ff4ef";
       this.restartMessage.innerText = "Restart (space)";
+       this.restartMessage.style.textShadow = "2px 2px #ff1493"
       return;
     }
 
@@ -114,7 +140,7 @@ export default class Game {
       this.gameOver = true;
       this.gameMessage.style.color = "#1ff4ef";
       this.gameMessage.style.textShadow = "2px 2px #ff1493"
-      this.gameMessage.innerText = "Player 1 Wins!";
+      this.gameMessage.innerText = `${this.playerOneData} wins!`;
       this.restartMessage.style.color = "#ff1493";
       this.restartMessage.innerText = "Restart (space)";
       this.restartMessage.style.textShadow = "2px 2px #1ff4ef"

@@ -3,9 +3,10 @@ import Game from './partials/Game';
 
 const gameMessage = document.getElementById("gameMessage");
 const restartMessage = document.getElementById("restartMessage");
+const form = document.getElementById("playerForm");
 
 // create a game instance
-const game = new Game('game', 512, 256, gameMessage, restartMessage);
+const game = new Game('game', 512, 256, gameMessage, restartMessage, form);
 
 //This is the loop that run sthe game at 60 frames per-second 
 (function gameLoop() {

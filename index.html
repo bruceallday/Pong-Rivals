@@ -19,10 +19,17 @@
 			<!-- Game displays here -->
 
 		</div>
-		<div id="messageBox">
+		<section>
+			<form action="" id="playerForm">
+				<div class="playerOneName">Player 1 name <input class="playerOneInput" id="playerOneInput" type="text" required></div>
+				<div class="playerTwoName" >Player 2 name <input class="playerTwoInput" id="playerTwoInput" type="text" required></div>
+			</form>
 			<h1 class="gameMessage" id="gameMessage">Press space to begin</h1>
-			<h1 class="restartMessage" id="restartMessage"></h1>
-		</div>
+			<div id="messageBox">
+				<h1 class="restartMessage" id="restartMessage"></h1>
+			</div>
+		</section>
+		
 		<audio id="music">
 			<source src="src/styles/retro.wav">
 		</audio>

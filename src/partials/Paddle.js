@@ -1,7 +1,7 @@
 import {SVG_NS} from '../settings'
 
 export default class Paddle{
-    constructor(boardHeight, width, height, x, y, up, down, color){
+    constructor(boardHeight, width, height, x, y, up, down, color, attack){
         this.boardHeight = boardHeight;
         this.width = width;
         this.height = height;
@@ -12,6 +12,9 @@ export default class Paddle{
         this.color = color;
         this.movingUp = false;
         this.movingDown = false;
+
+        this.attacking = false;
+        this.attackDistance = 20;
         
         // document.addEventListener("keydown", event => {
         //     console.log(event);
@@ -33,6 +36,11 @@ export default class Paddle{
                 case down:
                     this.movingDown = true;
                     break;
+                case attack:
+                    //add attack
+                    console.log(attack);
+                    this.attacking = true;
+                    
             }
         });
 
@@ -44,6 +52,10 @@ export default class Paddle{
                 case down:
                     this.movingDown = false;
                     break;
+                case attack:
+                    //add attck
+                    console.log(attack);
+                    console.log(this.x);
             }
         });
     }
@@ -52,13 +64,17 @@ export default class Paddle{
         // Creating a paddle element;
         this.drawPaddle(svg);
 
+        if (this.attacking && this.x === 494){
+            this.x -= 10;
+           console.log(this.x);
+        }
+
         if(this.movingUp){
             this.y = Math.max(0, this.y - this.speed);
         }
         if(this.movingDown){
             this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
         }
-        
     }
 
     drawPaddle(svg) {
@@ -87,5 +103,9 @@ export default class Paddle{
         let topY = y;
         let bottomY = y + height;
         return[leftX, rightX, topY, bottomY]
+    }
+
+    attack(){
+
     }
 }   
