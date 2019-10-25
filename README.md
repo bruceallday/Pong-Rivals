@@ -16,9 +16,24 @@ Ensure you have [Node.js](https://nodejs.org/en/) installed first.
 
 `$ npm start`
 
+Download the project
+
+Navigate to the project directory
+
+`yarn start` in your terminal or powershell
+
 Once you run the start command you can access your project at http://localhost:3000.
 
 Read more about the [Parcel web application bundler here](https://parceljs.org/).
+
+## Technologies used
+* HTML5
+* CSS3
+* Javascript ES6
+* Node.js
+* yarn
+* parcel
+
 
 ## How to play 
 
@@ -26,30 +41,34 @@ Start / Pause = SPACE
 
 ### Player one:
 
-UP = A <br>
-DOWN = Z <br>
+UP = a <br>
+DOWN = a <br>
 
 ### Player two:
 
-UP = K <br>
-DOWN = M <br>
+UP = k <br>
+DOWN = m <br>
 
 ### Rules
 
-![Score Board](scoreboard.png)<br>
 Players will start with 7 lives each<br>
 
 A ball will be thrown into the arena, the properties of the ball will be a randomly selected from 3 ball types.<br>
 
-![White Ball](whiteball.png) : let it past you you will lose a life.<br>
-![Blue Ball](blueball.png) : get it past your oponent you will gain a life.<br>
-![Danger Ball](redball.png) : if anyone touches the danger ball they will lose a life.<br>
+![White Ball](whiteball.png)<br>
+let it past you and you will lose a life.<br>
+
+![Blue Ball](blueball.png)<br>
+get it past your oponent you will gain a life.<br>
+
+![Danger Ball](redball.png)<br>
+if anyone touches this they will lose a life.<br>
 
 The speed of each ball increases over time, of the current round.<br>
 
 ## Personal Learnings
 
-### SVG's(scalable vector graphics)
+### SVG (scalable vector graphics)
 This was the first time I was introdiced to SVG in HTML. I leanred how to create images with multiple SVG elements.
 
 ### Partials / OOP Vanilla JS
@@ -77,22 +96,22 @@ if(this.movingDown){
 
 Not only did this solve the issue where the players couldn't press at the same time, but also it gave the paddles super-smooth motion, greatly increasing the players experience.
 
+## Added functionality
+* Player name boxes for a more personal experience
+* Slow acceleration on ball in each round
+* Ball type behaviour, life loss, life gain.
 
 ## Environment
-
 * macOS Mojave: 10.14.6
 * VS Code: 1.39.1
 
 ## Contributing
-
 Please feel free to clone this project, feedback and improvements welcome.
 
 ## Authors
-
 * **Bruce Pouncey** - *Initial work* - [BPouncey](https://github.com/BPouncey)
 
 ## License
-
 N/A
 
 ## Acknowledgments
