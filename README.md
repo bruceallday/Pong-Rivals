@@ -16,11 +16,11 @@ Ensure you have [Node.js](https://nodejs.org/en/) installed first.
 
 `$ npm start`
 
-Download the project
+Download the project.
 
-Navigate to the project directory
+Navigate to the project directory.
 
-`yarn start` in your terminal or powershell
+`yarn start` in your terminal or powershell.
 
 Once you run the start command you can access your project at http://localhost:3000.
 
@@ -76,14 +76,14 @@ Having used OOP in other languages I found that transfering my knowledge over to
 This has helped me to precisely identify the similarities and differences between various languages using Object Oriented Programming style. 
 
 ## Bug Fix
-The base game we started with had a bug in which only one player could press a button at 1 given time.
+The base game we started with had a bug in which only one player could press a button at a time.
 Accompanied by laggy paddle movement.
 
 My approach to solving this issue was to first isolate the source of the bug in the source code.
 It turned out that the paddles were not getting rendered in their ```render()``` method, meaning their call was once every second, not 60 times per second.
-My simple yet effective fix was to move the paddles into their own ```render()``` method and have them called on an ```addEventListener("keydown", )``` and ```addEventListener("keyup", )``` that would return a boolean to identify if the key was ```true``` (on press) and ```false``` (on release);
+My fix was to move the paddles into their own ```render()``` method and have them called on  ```addEventListener("keydown", )``` and ```addEventListener("keyup", )``` that would return a boolean to identify if the key was ```true``` (on press) and ```false``` (on release);
 
-Then using these boolean values along with their direction controls:
+Then using these values along with their direction calculation:
 
 ```javascript
 if(this.movingUp){
