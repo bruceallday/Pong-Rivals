@@ -1,12 +1,13 @@
 # Pong-Rivals Miami
 
-Basic Pong project using SVGs and Javascript Partials.
+Basic Pong project using SVG and JS OOP
 
 ![](ponggif.gif)
 
 ## Setup
 
 Ensure you have [Node.js](https://nodejs.org/en/) installed first.
+Ensure you have [yarn](https://yarnpkg.com) installed first.
 
 **Install dependencies:**
 
@@ -18,7 +19,7 @@ Ensure you have [Node.js](https://nodejs.org/en/) installed first.
 
 Download the project.
 
-Navigate to the project directory.
+Navigate to the project directory.<br>
 
 `yarn start` in your terminal or powershell.
 
@@ -29,11 +30,12 @@ Read more about the [Parcel web application bundler here](https://parceljs.org/)
 ## Technologies used
 * HTML5
 * CSS3
-* Javascript ES6
+* JS ES6
 * Node.js
 * yarn
 * parcel
-
+* Git
+* bash 
 
 ## How to play 
 
@@ -42,7 +44,7 @@ Start / Pause = SPACE
 ### Player one:
 
 UP = a <br>
-DOWN = a <br>
+DOWN = Z <br>
 
 ### Player two:
 
@@ -53,52 +55,48 @@ DOWN = m <br>
 
 Players will start with 7 lives each<br>
 
-A ball will be thrown into the arena, the properties of the ball will be a randomly selected from 3 ball types.<br>
+A ball will be thrown into the arena, the properties of the ball will be "randomly" selected from 3 ball types.<br>
 
 ![White Ball](whiteball.png)<br>
-let it past you and you will lose a life.<br>
+if the white ball passes a player, that player will lose a life.<br>
 
 ![Blue Ball](blueball.png)<br>
-get it past your oponent you will gain a life.<br>
+if the blue ball passes the player oponent, player will gain a life.<br>
 
 ![Danger Ball](redball.png)<br>
-if anyone touches this they will lose a life.<br>
+if any player comes in contact with the red ball, that player will loose a life.<br>
 
-The speed of each ball increases over time, of the current round.<br>
+The speed of the ball will increase over time, from the beginning of each round<br>
 
 ## Personal Learnings
-
-### SVG (scalable vector graphics)
-This was the first time I was introdiced to SVG in HTML. I leanred how to create images with multiple SVG elements.
-
-### Partials / OOP Vanilla JS
-Having used OOP in other languages I found that transfering my knowledge over to JS Partials was interesting and challenging.
-This has helped me to precisely identify the similarities and differences between various languages using Object Oriented Programming style. 
+* SVG Graphic elements
+* JS OOP and partials
 
 ## Bug Fix
 The base game we started with had a bug in which only one player could press a button at a time.
 Accompanied by laggy paddle movement.
 
-My approach to solving this issue was to first isolate the source of the bug in the source code.
-It turned out that the paddles were not getting rendered in their ```render()``` method, meaning their call was once every second, not 60 times per second.
-My fix was to move the paddles into their own ```render()``` method and have them called on  ```addEventListener("keydown", )``` and ```addEventListener("keyup", )``` that would return a boolean to identify if the key was ```true``` (on press) and ```false``` (on release);
+My approach to solving this issue was to first isolate the source of the bug in the source code. The ball moved smoothly yet the paddles didnt.
+It turned out that the paddles were not getting rendered in their ```render()``` method unlike the ball, meaning their call was once every second, not 60 times per second.
+My fix was to move the paddles into their ```render()``` class method and have them called on  ```addEventListener("keydown", )``` and ```addEventListener("keyup", )``` that would return a boolean to identify if the key was ```true``` (on press) and ```false``` (on release);
 
 Then using these values along with their direction calculation:
 
 ```javascript
-if(this.movingUp){
-    this.y = Math.max(0, this.y - this.speed);
-}
-if(this.movingDown){
-    this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
-}
+render()
+    if(this.movingUp){
+        this.y = Math.max(0, this.y - this.speed);
+    }
+    if(this.movingDown){
+        this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
+    }
 ```
 
-Not only did this solve the issue where the players couldn't press at the same time, but also it gave the paddles super-smooth motion, greatly increasing the players experience.
+Not only did this solve the issue where the players couldn't press at the same time, but also it gave the paddles smooth motion, greatly increasing the player experience.
 
 ## Added functionality
-* Player name boxes for a more personal experience
-* Slow acceleration on ball in each round
+* Player name boxes for win display
+* Acceleration on ball throughout each round
 * Ball type behaviour, life loss, life gain.
 
 ## Environment
@@ -106,16 +104,15 @@ Not only did this solve the issue where the players couldn't press at the same t
 * VS Code: 1.39.1
 
 ## Contributing
-Please feel free to clone this project, feedback and improvements welcome.
+Please feel free to clone this project.
 
 ## Authors
 * **Bruce Pouncey** - *Initial work* - [BPouncey](https://github.com/BPouncey)
 
 ## License
-N/A
+(MIT)
 
 ## Acknowledgments
-
 [RED Academy](https://github.com/redacademy)
 
 

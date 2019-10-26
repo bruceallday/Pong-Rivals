@@ -124,8 +124,7 @@ img{
 
 input{
   opacity: 0.9;
-  text-decoration: none;
-  
+  text-decoration: none; 
 }
 
 .playerOneInput{
@@ -137,7 +136,6 @@ input{
   color: #e183e5;
   margin: 10px;
   border: none;
-
 }
 
 .playerTwoInput{

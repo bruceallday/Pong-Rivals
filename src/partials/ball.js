@@ -2,6 +2,8 @@ import { SVG_NS } from '../settings'
 
 export default class Ball{
     constructor(boardWidth, boardHeight, r, color, speed, type){
+        this.soundEffect = document.getElementById("soundEffect");
+        this.soundEffect.loop = false;
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.r = r;
@@ -11,7 +13,6 @@ export default class Ball{
         this.color = color;
         this.type = type;
         this.restarting = false;
-
         this.giveDamage =false;
         this.reset();
     }
@@ -27,10 +28,9 @@ export default class Ball{
             this.speed += 0.1; 
 
         }else if (hitTop || hitBottom){
-            this.vy = -this.vy;
+            this.vy = -this.vy; 
             this.speed += 0.1;
         }
-
     }
 
     paddleCollision(paddle, paddle2){
@@ -42,16 +42,18 @@ export default class Ball{
                 && (this.x + this.r <= rightX)
                 && (this.y >= topY && this.y <= bottomY)
             ){
-                if(this.type === 'danger'){
+                if(this.type === "danger"){
                     this.giveDamage = true;
             }
                 this.currentDirection = -1;
                 this.vx = -this.vx;
+                this.playSound()
             }
 
         }else{
             let paddle2 = paddle.coordinates(paddle.x, paddle.y, paddle.width, paddle.height)
             let [leftX, rightX, topY, bottomY] = paddle2;
+
             if(
                 (this.x - this.r <= rightX)
                 && (this.x - this.r >= leftX)
@@ -62,8 +64,9 @@ export default class Ball{
             }
                 this.currentDirection = 1;
                 this.vx = -this.vx;
+                this.playSound()
+   
             }
-
         }
     }
 
@@ -78,7 +81,6 @@ export default class Ball{
         }
         this.vx = this.direction * (6- Math.abs(this.vy));
         this.vx *= Math.round(Math.random())* 2-1;
-        
     }
 
     goal(player, type){
@@ -113,7 +115,6 @@ export default class Ball{
             this.goal(paddle2, "regular");
             this.direction = -1;
         }
-
         else if(rightGoal && this.type === "danger"){
             this.goal(paddle, "danger")
             this.direction = 1;
@@ -122,7 +123,6 @@ export default class Ball{
             this.goal(paddle2, "danger")
             this.direction = -1;
         }
-
         else if (rightGoal && this.type === "life"){
             this.goal(paddle2, "life")
             this.direction = 1;
@@ -131,7 +131,6 @@ export default class Ball{
             this.goal(paddle, "life")
             this.direction = -1;
         }
-        
     }
 
     drawBall(svg) {
@@ -147,5 +146,9 @@ export default class Ball{
     mover() {
         this.x += this.vx * this.speed;
         this.y += this.vy * this.speed;
+    }
+
+    playSound(){
+        this.soundEffect.play();
     }
 }

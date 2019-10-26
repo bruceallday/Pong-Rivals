@@ -16,7 +16,7 @@ export default class Game {
     this.audio = document.getElementById("music");
     this.form = form;
     this.startOfGame = true;
-    this.audio.play(); 
+    this.audio.play();
     this.gameOn = false;
     this.board = new Board(this.width, this.height);
 

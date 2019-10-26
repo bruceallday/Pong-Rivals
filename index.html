@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>Pong</title>
 	</head>
 	<body>
+
 		<div class="game-wrapper">
-			
 			<header>
 				<h1 class="titleHeading">Pong</h1>
 				<div id="miamiLogo">
-					<img src="/src/styles/miamilogo.png" style="background-size: 200%;" alt="">
+					<img src="/src/styles/miamilogo.png" style="background-size: 200%;" alt="Landscape background">
 				</div>
 			</header>
 
 			<div id="game"></div>
-			
 			<!-- Game displays here -->
-
 		</div>
+
 		<section>
-			<form action="" id="playerForm">
-				<div class="playerOneName">Player 1 name : <input class="playerOneInput" id="playerOneInput" type="text" value="..." required></div>
-				<div class="playerTwoName" >Player 2 name : <input class="playerTwoInput" id="playerTwoInput" type="text" value="..." required></div>
+			<form id="playerForm">
+				<div class="playerOneName">Player 1 name : <input class="playerOneInput" 
+					id="playerOneInput" type="text" placeholder="..." required></div>
+				<div class="playerTwoName" >Player 2 name : <input class="playerTwoInput" 
+					id="playerTwoInput" type="text" placeholder="..." required></div>
 			</form>
 			<h1 class="gameMessage" id="gameMessage">Press space to begin</h1>
 			<div id="messageBox">
@@ -33,6 +35,11 @@
 		<audio id="music">
 			<source src="src/styles/retro.wav">
 		</audio>
+
+		<audio id="soundEffect">
+			<source src="src/styles/bounceSound.wav" > 
+		</audio>
+
 		<script type="text/javascript" src="./src/index.js"></script>
 	</body>
 </html>

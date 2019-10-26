@@ -4,7 +4,6 @@ export default class Board {
     constructor(width, height){
         this.width = width;
         this.height = height;
-        
     }
     render(svg){
 
@@ -66,8 +65,5 @@ export default class Board {
         lineWhite2.setAttributeNS(null, "stroke-dasharray", 6);
 
         svg.appendChild(lineWhite2);
-
-        
     }
-
 }
