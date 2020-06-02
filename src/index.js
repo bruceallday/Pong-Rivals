@@ -1,6 +1,5 @@
 import './styles/game.css';
 import Game from './partials/Game';
-
 const gameMessage = document.getElementById("gameMessage");
 const restartMessage = document.getElementById("restartMessage");
 const form = document.getElementById("playerForm");

@@ -65,7 +65,6 @@ export default class Ball{
                 this.currentDirection = 1;
                 this.vx = -this.vx;
                 this.playSound()
-   
             }
         }
     }
